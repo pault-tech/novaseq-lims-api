@@ -1,0 +1,509 @@
+openapi: 3.0.0
+info:
+  title: Illumina.Voyager.LimsApi
+  version: v1
+servers:
+- description: LIMS Server
+  url: http://localhost:9000
+security:
+- bearerAuth: []
+paths:
+  /Illumina/Sequencer/v2/sequencing-run/login:
+    get:
+      operationId: Lims_GetLoginUrl
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      tags:
+      - Lims
+      x-accepts: application/json
+      x-tags:
+      - tag: Lims
+  /Illumina/Sequencer/v2/sequencing-run/recipe/samplesheetfile:
+    get:
+      operationId: Lims_GetSampleSheet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      tags:
+      - Lims
+      x-accepts: application/json
+      x-tags:
+      - tag: Lims
+  /Illumina/Sequencer/v2/sequencing-run/recipe/novaseq:
+    post:
+      operationId: Lims_GetRecipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeIdentifier'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RecipeIdentifier'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/RecipeIdentifier'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/RecipeIdentifier'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RecipeIdentifier'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      summary: Get the recipe
+      tags:
+      - Lims
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Lims
+  /Illumina/Sequencer/v2/sequencing-run/metrics:
+    post:
+      description: Submits sequencing run metrics.
+      operationId: Lims_SubmitMetrics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SequencingRunMetrics'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SequencingRunMetrics'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SequencingRunMetrics'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/SequencingRunMetrics'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SequencingRunMetrics'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      tags:
+      - Lims
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Lims
+  /Illumina/Sequencer/v2/sequencing-run/update:
+    post:
+      description: Updates run progress.
+      operationId: Lims_UpdateProgress
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SequencingRunStatusDto'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SequencingRunStatusDto'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SequencingRunStatusDto'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/SequencingRunStatusDto'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SequencingRunStatusDto'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      tags:
+      - Lims
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Lims
+  /Login:
+    post:
+      operationId: Values_GetValues
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+          text/xml:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserInfo'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Object'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/Object'
+          description: OK
+      tags:
+      - Values
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Values
+components:
+  schemas:
+    Object:
+      properties: {}
+      type: object
+    RecipeIdentifier:
+      example:
+        libraryContainerId: libraryContainerId
+        flowCellId: flowCellId
+        reagents:
+        - mode: mode
+          serialNumber: serialNumber
+          name: name
+          partNumber: partNumber
+          cycles: 0
+          lotNumber: lotNumber
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        - mode: mode
+          serialNumber: serialNumber
+          name: name
+          partNumber: partNumber
+          cycles: 0
+          lotNumber: lotNumber
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        flowCellId:
+          type: string
+        libraryContainerId:
+          type: string
+        reagents:
+          items:
+            $ref: '#/components/schemas/Reagent'
+          type: array
+      type: object
+    Reagent:
+      example:
+        mode: mode
+        serialNumber: serialNumber
+        name: name
+        partNumber: partNumber
+        cycles: 0
+        lotNumber: lotNumber
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        name:
+          type: string
+        expirationDate:
+          format: date-time
+          type: string
+        lotNumber:
+          type: string
+        serialNumber:
+          type: string
+        partNumber:
+          type: string
+        mode:
+          type: string
+        cycles:
+          format: int32
+          type: integer
+      type: object
+    SequencingRunMetrics:
+      example:
+        clusterDensityR1: 7.0614014
+        intensityCycle1R2: 1.0246457
+        clusterDensityR2: 9.301444
+        percentGreaterThanQ30R1: 4.145608
+        intensityCycle1R1: 1.2315135
+        runInfo:
+          dateTime: 2000-01-23T04:56:07.000+00:00
+          instrumentType: 0
+          flowCellSide: flowCellSide
+          instrumentId: instrumentId
+          libraryTubeId: libraryTubeId
+          runId: runId
+          flowCellId: flowCellId
+          userName: userName
+          outputFolder: outputFolder
+        percentErrorRateR1: 7.4577446
+        percentErrorRateR2: 1.1730742
+        percentGreaterThanQ30R2: 7.386282
+        percentPrePhasingR1: 9.965781
+        percentPfR1: 3.6160767
+        percentPfR2: 2.027123
+        percentPrePhasingR2: 9.36931
+        percentPhasingR2: 5.025005
+        percentPhasingR1: 4.9652185
+        yieldPfR2: 5.962134
+        readsPfR2: 2.302136
+        yieldPfR1: 1.4658129
+        readsPfR1: 5.637377
+        percentAlignedR2: 6.846853
+        status: 6
+        percentAlignedR1: 1.4894159
+      properties:
+        runInfo:
+          $ref: '#/components/schemas/RunInfo'
+        status:
+          enum:
+          - null
+          - 2
+          - 3
+          format: int32
+          type: integer
+        yieldPfR1:
+          format: float
+          type: number
+        yieldPfR2:
+          format: float
+          type: number
+        readsPfR1:
+          format: float
+          type: number
+        readsPfR2:
+          format: float
+          type: number
+        clusterDensityR1:
+          format: float
+          type: number
+        clusterDensityR2:
+          format: float
+          type: number
+        percentPfR1:
+          format: float
+          type: number
+        percentPfR2:
+          format: float
+          type: number
+        percentGreaterThanQ30R1:
+          format: float
+          type: number
+        percentGreaterThanQ30R2:
+          format: float
+          type: number
+        intensityCycle1R1:
+          format: float
+          type: number
+        intensityCycle1R2:
+          format: float
+          type: number
+        percentAlignedR1:
+          format: float
+          type: number
+        percentAlignedR2:
+          format: float
+          type: number
+        percentErrorRateR1:
+          format: float
+          type: number
+        percentErrorRateR2:
+          format: float
+          type: number
+        percentPhasingR1:
+          format: float
+          type: number
+        percentPhasingR2:
+          format: float
+          type: number
+        percentPrePhasingR1:
+          format: float
+          type: number
+        percentPrePhasingR2:
+          format: float
+          type: number
+      type: object
+    RunInfo:
+      example:
+        dateTime: 2000-01-23T04:56:07.000+00:00
+        instrumentType: 0
+        flowCellSide: flowCellSide
+        instrumentId: instrumentId
+        libraryTubeId: libraryTubeId
+        runId: runId
+        flowCellId: flowCellId
+        userName: userName
+        outputFolder: outputFolder
+      properties:
+        runId:
+          type: string
+        flowCellId:
+          type: string
+        libraryTubeId:
+          type: string
+        instrumentId:
+          type: string
+        instrumentType:
+          enum:
+          - 0
+          format: int32
+          type: integer
+        flowCellSide:
+          type: string
+        dateTime:
+          format: date-time
+          type: string
+        outputFolder:
+          type: string
+        userName:
+          type: string
+      type: object
+    SequencingRunStatusDto:
+      example:
+        runInfo:
+          dateTime: 2000-01-23T04:56:07.000+00:00
+          instrumentType: 0
+          flowCellSide: flowCellSide
+          instrumentId: instrumentId
+          libraryTubeId: libraryTubeId
+          runId: runId
+          flowCellId: flowCellId
+          userName: userName
+          outputFolder: outputFolder
+        instrumentControlSoftwareVersion: instrumentControlSoftwareVersion
+        currentCycle: 6
+        currentRead: 1
+        firmwareVersion: firmwareVersion
+        reagents:
+        - mode: mode
+          serialNumber: serialNumber
+          name: name
+          partNumber: partNumber
+          cycles: 0
+          lotNumber: lotNumber
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        - mode: mode
+          serialNumber: serialNumber
+          name: name
+          partNumber: partNumber
+          cycles: 0
+          lotNumber: lotNumber
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        status: 0
+        rtaVersion: rtaVersion
+      properties:
+        runInfo:
+          $ref: '#/components/schemas/RunInfo'
+        status:
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          format: int32
+          type: integer
+        reagents:
+          items:
+            $ref: '#/components/schemas/Reagent'
+          type: array
+        currentCycle:
+          format: int32
+          type: integer
+        currentRead:
+          format: int32
+          type: integer
+        instrumentControlSoftwareVersion:
+          type: string
+        rtaVersion:
+          type: string
+        firmwareVersion:
+          type: string
+      type: object
+    UserInfo:
+      example:
+        password: password
+        userName: userName
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+      type: object
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
